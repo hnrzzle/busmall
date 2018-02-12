@@ -29,7 +29,12 @@ const tracking = {
             new Product('Infinite Water Can', '/img/water-can.jpg'),
             new Product('Death Star Wine Glass', '/img/wine-glass.jpg')
         );
-        console.table(this.productsArray);
+        this.showProduct();
+    },
+    showProduct: function () {
+        const randomNum = Math.floor(Math.random() * (this.productsArray.length));
+        const displayProduct = this.productsArray[randomNum];
+        console.log(displayProduct);
     }
 
 };
