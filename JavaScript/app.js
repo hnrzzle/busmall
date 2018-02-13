@@ -32,9 +32,23 @@ const tracking = {
         this.showProduct();
         const board = document.getElementById('game-board');
         board.addEventListener('click', function() {
+            console.log('board was clicked!', event.target);
+            const url = event.target.src;
+            for(let i = 0; i < tracking.productsArray.length; i++) {
+                const product = tracking.productsArray[i];
+                console.log(url.slice(url.indexOf(product.imgURL), url.length));
+                const endOfUrl = url.slice(url.indexOf(product.imgURL), url.length);
+
+                if (endOfUrl === product.imgURL) {
+                    product.numClicks++;
+                    console.log(product);
+                }
+         
+            }
+
+
             tracking.clearBoard();
             tracking.showProduct();
-            console.log('event was clicked!', event.target);
         });
     },
     showProduct: function () {
