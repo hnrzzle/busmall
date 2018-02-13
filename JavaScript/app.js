@@ -52,13 +52,64 @@ const tracking = {
                 alert('You\'re out of clicks!');
                 tracking.clearBoard();
                 board.removeEventListener('click', event.target);
+                tracking.displayChart();
                 // tracking.displayList();
 
             }
 
         });
-        
+
     },
+    productNames: function() {
+        let productNameArray = [];
+        for (let i = 0; i < this.productsArray.length; i++) {
+            productNameArray.push(this.productsArray[i].name);
+            console.log(productNameArray);
+        }
+    },
+    displayChart: function() {
+        const chartCanvas = document.getElementById('chart');
+        const chartCtx = chartCanvas.getContext('2d');
+        const chart = new Chart (chartCtx, {
+            type: 'bar',
+            data: {
+                labels: this.productsArray[i].name,
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    },
+
+
+
     // displayList: function () {
     //     for (let i = 0; i < this.productsArray.length; i++) {
     //         const list = document.getElementById('list-count');
@@ -96,5 +147,5 @@ Product.prototype.createTag = function () {
     return element;
 };
 
-
 tracking.start();
+tracking.productNames();
