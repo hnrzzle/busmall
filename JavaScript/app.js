@@ -6,6 +6,7 @@ function Product(name, imgURL) {
 }
 const tracking = {
     productsArray: [],
+    numOfTotalClicks: 0,
     start: function() {
         this.productsArray.push(
             new Product('R2-D2 Luggage', 'img/bag.jpg'),
@@ -31,12 +32,11 @@ const tracking = {
         );
         this.showProduct();
         const board = document.getElementById('game-board');
-        let numOfTotalClicks = 0;
         board.addEventListener('click', function() {
             console.log('board was clicked!', event.target);
             const url = event.target.src;
-            numOfTotalClicks++;
-            if (numOfTotalClicks < 25) {
+            tracking.numOfTotalClicks++;
+            if (tracking.numOfTotalClicks < 25) {
                 // need to figure out how to stop showProduct
                 for(let i = 0; i < tracking.productsArray.length; i++) {
                     const product = tracking.productsArray[i];
@@ -52,10 +52,12 @@ const tracking = {
             } else {
                 alert('You\'re out of clicks!');
                 tracking.clearBoard();
+                board.removeEventListener('click', event.target);
 
             }
 
         });
+
     },
     showProduct: function () {
         const section = document.getElementById('game-board');
