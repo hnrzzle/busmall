@@ -31,9 +31,16 @@ const tracking = {
         );
         this.showProduct();
         const board = document.getElementById('game-board');
+        let numOfTotalClicks = 0;
         board.addEventListener('click', function() {
             console.log('board was clicked!', event.target);
             const url = event.target.src;
+            numOfTotalClicks++;
+            if (numOfTotalClicks > 24) {
+                alert(`You're out of clicks!`);
+                tracking.clearBoard();
+                // need to figure out how to stop showProduct
+            }
             for(let i = 0; i < tracking.productsArray.length; i++) {
                 const product = tracking.productsArray[i];
                 console.log(url.slice(url.indexOf(product.imgURL), url.length));
