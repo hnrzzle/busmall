@@ -32,9 +32,15 @@ const tracking = {
         this.showProduct();
     },
     showProduct: function () {
-        const randomNum = Math.floor(Math.random() * (this.productsArray.length));
-        const displayProduct = this.productsArray[randomNum];
-        console.log(displayProduct);
+
+        const selectedProducts = [];
+        while (selectedProducts.length < 3) {
+            const randomNum = Math.floor(Math.random() * (this.productsArray.length));
+            const displayProduct = this.productsArray[randomNum];
+            if (selectedProducts.includes(displayProduct)) continue;
+            selectedProducts.push(displayProduct);
+        };
+        console.table(selectedProducts);
     }
 
 };
