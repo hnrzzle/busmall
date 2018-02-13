@@ -30,6 +30,12 @@ const tracking = {
             new Product('Death Star Wine Glass', 'img/wine-glass.jpg')
         );
         this.showProduct();
+        const board = document.getElementById('game-board');
+        board.addEventListener('click', function() {
+            tracking.clearBoard();
+            tracking.showProduct();
+            console.log('event was clicked!', event.target);
+        });
     },
     showProduct: function () {
         const section = document.getElementById('game-board');
@@ -43,9 +49,14 @@ const tracking = {
             section.appendChild(randomProduct.createTag());
         };
         console.table(selectedProducts);
+    },
+    clearBoard: function () {
+        const section = document.getElementById('game-board');
+        section.innerHTML = '';
     }
 
 };
+
 
 Product.prototype.createTag = function () {
     const element = document.createElement('img');
