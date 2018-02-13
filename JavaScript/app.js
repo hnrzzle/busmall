@@ -37,7 +37,6 @@ const tracking = {
             const url = event.target.src;
             tracking.numOfTotalClicks++;
             if (tracking.numOfTotalClicks < 25) {
-                // need to figure out how to stop showProduct
                 for(let i = 0; i < tracking.productsArray.length; i++) {
                     const product = tracking.productsArray[i];
                     console.log(url.slice(url.indexOf(product.imgURL), url.length));
@@ -53,22 +52,22 @@ const tracking = {
                 alert('You\'re out of clicks!');
                 tracking.clearBoard();
                 board.removeEventListener('click', event.target);
-                tracking.displayList();
+                // tracking.displayList();
 
             }
 
         });
-
+        
     },
-    displayList: function () {
-        for (let i = 0; i < this.productsArray.length; i++) {
-            const list = document.getElementById('list-count');
-            const li = document.createElement('li');
-            li.textContent = this.productsArray[i].name + ' was clicked ' + this.productsArray[i].numClicks + ' times!';
-            list.appendChild(li);
-        }
+    // displayList: function () {
+    //     for (let i = 0; i < this.productsArray.length; i++) {
+    //         const list = document.getElementById('list-count');
+    //         const li = document.createElement('li');
+    //         li.textContent = this.productsArray[i].name + ' was clicked ' + this.productsArray[i].numClicks + ' times!';
+    //         list.appendChild(li);
+    //     }
 
-    },
+    // },
     showProduct: function () {
         const section = document.getElementById('game-board');
         const selectedProducts = [];
