@@ -60,23 +60,33 @@ const tracking = {
         });
 
     },
+
     productNames: function() {
         let productNameArray = [];
         for (let i = 0; i < this.productsArray.length; i++) {
             productNameArray.push(this.productsArray[i].name);
-            console.log(productNameArray);
         }
+        return productNameArray;
     },
+    
+    productClicks: function() {
+        let productClickArray = [];
+        for (let i = 0; i < this.productsArray.length; i++) {
+            productClickArray.push(this.productsArray[i].numClicks);
+        }
+        return productClickArray;
+    },
+
     displayChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
         const chart = new Chart (chartCtx, {
             type: 'bar',
             data: {
-                labels: this.productsArray[i].name,
+                labels: this.productNames(),
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: this.productClicks(),
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -148,4 +158,3 @@ Product.prototype.createTag = function () {
 };
 
 tracking.start();
-tracking.productNames();
