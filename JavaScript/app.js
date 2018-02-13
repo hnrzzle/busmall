@@ -36,26 +36,25 @@ const tracking = {
             console.log('board was clicked!', event.target);
             const url = event.target.src;
             numOfTotalClicks++;
-            if (numOfTotalClicks > 24) {
-                alert(`You're out of clicks!`);
-                tracking.clearBoard();
+            if (numOfTotalClicks < 25) {
                 // need to figure out how to stop showProduct
-            }
-            for(let i = 0; i < tracking.productsArray.length; i++) {
-                const product = tracking.productsArray[i];
-                console.log(url.slice(url.indexOf(product.imgURL), url.length));
-                const endOfUrl = url.slice(url.indexOf(product.imgURL), url.length);
-
-                if (endOfUrl === product.imgURL) {
-                    product.numClicks++;
-                    console.log(product);
+                for(let i = 0; i < tracking.productsArray.length; i++) {
+                    const product = tracking.productsArray[i];
+                    console.log(url.slice(url.indexOf(product.imgURL), url.length));
+                    const endOfUrl = url.slice(url.indexOf(product.imgURL), url.length);
+                    if (endOfUrl === product.imgURL) {
+                        product.numClicks++;
+                        console.log(product);
+                    }
                 }
-         
+                tracking.clearBoard();
+                tracking.showProduct();
+            } else {
+                alert('You\'re out of clicks!');
+                tracking.clearBoard();
+
             }
 
-
-            tracking.clearBoard();
-            tracking.showProduct();
         });
     },
     showProduct: function () {
