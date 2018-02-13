@@ -53,10 +53,20 @@ const tracking = {
                 alert('You\'re out of clicks!');
                 tracking.clearBoard();
                 board.removeEventListener('click', event.target);
+                tracking.displayList();
 
             }
 
         });
+
+    },
+    displayList: function () {
+        for (let i = 0; i < this.productsArray.length; i++) {
+            const list = document.getElementById('list-count');
+            const li = document.createElement('li');
+            li.textContent = this.productsArray[i].name + ' was clicked ' + this.productsArray[i].numClicks + ' times!';
+            list.appendChild(li);
+        }
 
     },
     showProduct: function () {
