@@ -1,35 +1,48 @@
-function Product(name, imgURL) {
+function Product(name, imgURL, numClicks) {
     this.name = name;
     this.imgURL = imgURL;
-    this.numClicks = 0;
+    this.numClicks = numClicks;
     this.numViews = 0;
 }
 const tracking = {
     productsArray: [],
     numOfTotalClicks: 0,
     start: function() {
-        this.productsArray.push(
-            new Product('R2-D2 Luggage', 'img/bag.jpg'),
-            new Product('Banana Slicer', 'img/banana.jpg'),
-            new Product('Bathroom iPad Holder', 'img/bathroom.jpg'),
-            new Product('Waterproof Converse Boots', 'img/boots.jpg'),
-            new Product('Instant Breakfast', 'img/breakfast.jpg'),
-            new Product('Meatball Bubblegum', 'img/bubblegum.jpg'),
-            new Product('Retro Chair', 'img/chair.jpg'),
-            new Product('Cthuluhu Figurine', 'img/cthulhu.jpg'),
-            new Product('Duckbill for Dogs', 'img/dog-duck.jpg'),
-            new Product('Dragon Meat', 'img/dragon.jpg'),
-            new Product('Utinsel Adapter for Pens', 'img/pen.jpg'),
-            new Product('Pet Sweep', 'img/pet-sweep.jpg'),
-            new Product('Pizza Scissors', 'img/scissors.jpg'),
-            new Product('Shark Sleeping Bag', 'img/shark.jpg'),
-            new Product('Baby Sweeper', 'img/sweep.png'),
-            new Product('Tantaun Sleeping Bag', 'img/tauntaun.jpg'),
-            new Product('Unicorn Meat', 'img/unicorn.jpg'),
-            new Product('Tentacle USB Drive', 'img/usb.gif'),
-            new Product('Infinite Water Can', 'img/water-can.jpg'),
-            new Product('Death Star Wine Glass', 'img/wine-glass.jpg')
-        );
+        if (localStorage.getItem('product')) {
+            const productObjs = JSON.parse(localStorage.getItem('product'));
+            console.log(productObjs);
+
+
+            for (let i = 0; i < productObjs.length; i++) {
+                const currentProduct = productObjs[i];
+                const product = new Product(currentProduct.name, currentProduct.imgURL, currentProduct.numClicks);
+                this.productsArray.push(product);
+
+            }
+        } else {
+            this.productsArray.push(
+                new Product('R2-D2 Luggage', 'img/bag.jpg'),
+                new Product('Banana Slicer', 'img/banana.jpg'),
+                new Product('Bathroom iPad Holder', 'img/bathroom.jpg'),
+                new Product('Waterproof Converse Boots', 'img/boots.jpg'),
+                new Product('Instant Breakfast', 'img/breakfast.jpg'),
+                new Product('Meatball Bubblegum', 'img/bubblegum.jpg'),
+                new Product('Retro Chair', 'img/chair.jpg'),
+                new Product('Cthuluhu Figurine', 'img/cthulhu.jpg'),
+                new Product('Duckbill for Dogs', 'img/dog-duck.jpg'),
+                new Product('Dragon Meat', 'img/dragon.jpg'),
+                new Product('Utinsel Adapter for Pens', 'img/pen.jpg'),
+                new Product('Pet Sweep', 'img/pet-sweep.jpg'),
+                new Product('Pizza Scissors', 'img/scissors.jpg'),
+                new Product('Shark Sleeping Bag', 'img/shark.jpg'),
+                new Product('Baby Sweeper', 'img/sweep.png'),
+                new Product('Tantaun Sleeping Bag', 'img/tauntaun.jpg'),
+                new Product('Unicorn Meat', 'img/unicorn.jpg'),
+                new Product('Tentacle USB Drive', 'img/usb.gif'),
+                new Product('Infinite Water Can', 'img/water-can.jpg'),
+                new Product('Death Star Wine Glass', 'img/wine-glass.jpg')
+            );
+        }
         this.showProduct();
         const board = document.getElementById('game-board');
         board.addEventListener('click', function() {
@@ -53,7 +66,7 @@ const tracking = {
                 tracking.finishText();
                 board.removeEventListener('click', event.target);
                 tracking.displayChart();
-                // tracking.displayList();
+                localStorage.setItem('product', JSON.stringify(tracking.productsArray));
 
             }
 
@@ -110,18 +123,6 @@ const tracking = {
             }
         });
     },
-
-
-
-    // displayList: function () {
-    //     for (let i = 0; i < this.productsArray.length; i++) {
-    //         const list = document.getElementById('list-count');
-    //         const li = document.createElement('li');
-    //         li.textContent = this.productsArray[i].name + ' was clicked ' + this.productsArray[i].numClicks + ' times!';
-    //         list.appendChild(li);
-    //     }
-
-    // },
     showProduct: function () {
         const section = document.getElementById('game-board');
         const selectedProducts = [];
