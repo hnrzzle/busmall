@@ -5,6 +5,7 @@
     },
     "globals": {
       "Chart": true
+
     },
     //  To learn more about the rules: https://eslint.org/docs/rules/
     "rules": {

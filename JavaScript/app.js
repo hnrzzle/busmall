@@ -86,7 +86,7 @@ const tracking = {
     displayChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
-        const chart = new Chart (chartCtx, {
+        new Chart (chartCtx, { 
             type: 'horizontalBar',
             data: {
                 labels: this.productNames(),
