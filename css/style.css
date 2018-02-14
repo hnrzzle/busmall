@@ -12,6 +12,10 @@
     background-position: center top;
     background-size: 100%;
     vertical-align: middle;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #header-text {
     margin-top: 225px;
@@ -31,6 +35,11 @@ header p {
     font-style: italic;
     font-family: 'EB Garamond', serif;
     font-size: 1.1em;
+}
+
+#chart-container {
+    margin: auto auto;
+    width: 80%;
 }
 
 #game-board {
