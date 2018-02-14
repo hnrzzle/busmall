@@ -1,7 +1,8 @@
 
 #header {
     display: flex;
-    height: 400px;
+    flex-direction: column;
+    height: 500px;
     width: 100%;
     background-image: url('../img/buses.jpg');
     text-align: center;
@@ -12,11 +13,26 @@
     background-size: 100%;
     vertical-align: middle;
 }
+#header-text {
+    margin-top: 225px;
+    text-align: center;
+}
 header h1 {
     margin: auto auto;
-    font-size: 70px;
+    font-size: 76px;
     color: white;
+    margin-bottom: 0;
+    font-family: 'EB Garmond', serif;
 }
+header p {
+    color: white;
+    margin: auto auto;
+    margin-top: 0px;
+    font-style: italic;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1em;
+}
+
 #game-board {
     display: flex;
     align-items: center;
