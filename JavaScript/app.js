@@ -80,7 +80,7 @@ const tracking = {
     displayChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
-        const Chart = new Chart (chartCtx, {
+        const chart = new Chart (chartCtx, {
             type: 'bar',
             data: {
                 labels: this.productNames(),
