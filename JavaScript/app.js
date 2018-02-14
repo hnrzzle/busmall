@@ -51,6 +51,7 @@ const tracking = {
             } else {
                 alert('You\'re out of clicks!');
                 tracking.clearBoard();
+                tracking.finishText();
                 board.removeEventListener('click', event.target);
                 tracking.displayChart();
                 // tracking.displayList();
@@ -60,7 +61,13 @@ const tracking = {
         });
 
     },
+    finishText: function () {
+        const board = document.getElementById('game-board');
+        const h1 = document.createElement('h1');
+        h1.textContent = 'Your results are displayed below, thanks for playing :)';
+        board.appendChild(h1);
 
+    },
     productNames: function() {
         let productNameArray = [];
         for (let i = 0; i < this.productsArray.length; i++) {
