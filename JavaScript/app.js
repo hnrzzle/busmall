@@ -81,21 +81,19 @@ const tracking = {
 
     },
     productNames: function() {
-        let productNameArray = [];
+        const productNameArray = [];
         for (let i = 0; i < this.productsArray.length; i++) {
             productNameArray.push(this.productsArray[i].name);
         }
         return productNameArray;
     },
-    
     productClicks: function() {
-        let productClickArray = [];
+        const productClickArray = [];
         for (let i = 0; i < this.productsArray.length; i++) {
             productClickArray.push(this.productsArray[i].numClicks);
         }
         return productClickArray;
     },
-
     displayChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
