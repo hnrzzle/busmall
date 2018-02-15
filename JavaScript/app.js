@@ -4,13 +4,21 @@ function Product(name, imgURL, numClicks) {
     this.numClicks = numClicks;
     this.numViews = 0;
 }
+
 const tracking = {
     productsArray: [],
     numOfTotalClicks: 0,
     start: function() {
+        if (localStorage.getItem('settings')) {
+            const settings = localStorage.getItem('settings');
+            console.log(settings);
+            this.prodAmt = JSON.parse(settings.prodAmt);
+            this.roundAmt = JSON.parse(settings.roundAmt);
+            console.log(this.prodAmt);
+            console.log(this.roundAmt);
+        }
         if (localStorage.getItem('product')) {
             const productObjs = JSON.parse(localStorage.getItem('product'));
-            console.log(productObjs);
 
 
             for (let i = 0; i < productObjs.length; i++) {
