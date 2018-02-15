@@ -10,10 +10,10 @@ const tracking = {
     numOfTotalClicks: 0,
     start: function() {
         if (localStorage.getItem('settings')) {
-            const settings = localStorage.getItem('settings');
+            const settings = JSON.parse(localStorage.getItem('settings'));
             console.log(settings);
-            this.prodAmt = JSON.parse(settings.prodAmt);
-            this.roundAmt = JSON.parse(settings.roundAmt);
+            this.prodAmt = parseInt(settings.prodAmt);
+            this.roundAmt = parseInt(settings.roundAmt);
             console.log(this.prodAmt);
             console.log(this.roundAmt);
         }
