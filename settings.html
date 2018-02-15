@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/settings.css" />
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Admin Settings</h1></header>
+        <section id="settings-form">
+            <form id="submission">
+                <fieldset>
+                    <legend>Change Settings</legend>
+                    <label for="product-amount">Amount of Products Displayed:</label>
+                    <input name="product-amount" type="number" class="number" min="2" max="5"/>
+                    <label for="rounds-amount">Amount of Rounds:</label>
+                    <input name="rounds-amount" type="number" class="number" min="5" max="20" />
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+</body>
+<script src="JavaScript/settings.js"></script>
+</html>

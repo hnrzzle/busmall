@@ -1,0 +1,69 @@
+
+#header {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 100%;
+    background-image: url('../img/buses.jpg');
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100%;
+    vertical-align: middle;
+    background-attachment: fixed;
+}
+#header-text {
+    margin-top: 225px;
+    text-align: center;
+}
+header h1 {
+    margin: auto auto;
+    font-size: 76px;
+    color: white;
+    margin-bottom: 0;
+    font-family: 'EB Garmond', serif;
+}
+header p {
+    color: white;
+    margin: auto auto;
+    margin-top: 0px;
+    font-style: italic;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1em;
+}
+
+#chart-container {
+    margin: auto auto;
+    width: 80%;
+}
+
+#game-board {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: white;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: black; 
+}
+img {
+    width: 300px;
+    padding: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    filter: opacity(90%);
+}
+img:hover {
+    filter: grayscale(100%);
+    filter: opacity(100%);
+    cursor: pointer;
+    width: 315px;
+}
