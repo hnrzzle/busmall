@@ -59,10 +59,11 @@ img {
     padding: 5px;
     margin-top: 25px;
     margin-bottom: 25px;
+    filter: opacity(90%);
 }
 img:hover {
     filter: grayscale(100%);
-    filter: opacity(70%);
+    filter: opacity(100%);
     cursor: pointer;
-    width: 290px;
+    width: 315px;
 }
