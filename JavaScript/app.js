@@ -97,7 +97,7 @@ const tracking = {
     displayChart: function() {
         const chartCanvas = document.getElementById('chart');
         const chartCtx = chartCanvas.getContext('2d');
-        new Chart (chartCtx, {
+        const chart = new Chart (chartCtx, { //eslint-disable-line
             type: 'horizontalBar',
             data: {
                 labels: this.productNames(),
