@@ -1,9 +1,8 @@
 const settingsForm = document.getElementById('submission');
 settingsForm.addEventListener('submit', function() {
     event.preventDefault();
-    
     const error = document.getElementById('error-success');
-        
+
     const p = document.createElement('p');
     error.innerHTML = '';
 
@@ -18,7 +17,7 @@ settingsForm.addEventListener('submit', function() {
     console.log(settings);
 
     if (this['product-amount'].value || this['rounds-amount'].value) {
-        
+
         p.textContent = 'Your changes were successfully saved!';
         error.appendChild(p);
 
