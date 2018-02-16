@@ -10,6 +10,17 @@ settingsForm.addEventListener('submit', function() {
         prodAmt: productAmt,
         roundAmt: roundsAmt,
     };
-    localStorage.setItem('settings', JSON.stringify(settings));
+    if (this['product-amount'].value) {
+        const error = document.getElementById('error-success');
+        const p = document.createElement('p');
+        p.textContent = 'Your changes were successfully saved!';
+        error.appendChild(p);
+
+        console.log('yes');
+
+    } else {
+        console.log('no');
+    }
+
 });
 
