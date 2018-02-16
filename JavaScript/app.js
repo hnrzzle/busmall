@@ -8,12 +8,14 @@ function Product(name, imgURL, numClicks) {
 const tracking = {
     productsArray: [],
     numOfTotalClicks: 0,
+    prodAmt: 3,
+    roundAmt: 25,
     start: function() {
         if (localStorage.getItem('settings')) {
             const settings = JSON.parse(localStorage.getItem('settings'));
             console.log(settings);
-            this.prodAmt = parseInt(settings.prodAmt);
-            this.roundAmt = parseInt(settings.roundAmt);
+            this.prodAmt = (settings.prodAmt);
+            this.roundAmt = (settings.roundAmt);
             console.log(this.prodAmt);
             console.log(this.roundAmt);
         }
@@ -57,7 +59,7 @@ const tracking = {
             console.log('board was clicked!', event.target);
             const url = event.target.src;
             tracking.numOfTotalClicks++;
-            if (tracking.numOfTotalClicks < 25) {
+            if (tracking.numOfTotalClicks < tracking.roundAmt) {
                 for(let i = 0; i < tracking.productsArray.length; i++) {
                     const product = tracking.productsArray[i];
                     console.log(url.slice(url.indexOf(product.imgURL), url.length));
@@ -132,7 +134,7 @@ const tracking = {
     showProduct: function () {
         const section = document.getElementById('game-board');
         const selectedProducts = [];
-        while (selectedProducts.length < 3) {
+        while (selectedProducts.length < tracking.prodAmt) {
             const randomNum = Math.floor(Math.random() * (this.productsArray.length));
             const randomProduct = this.productsArray[randomNum];
             if (selectedProducts.includes(randomProduct)) continue;
